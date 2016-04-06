@@ -1,0 +1,91 @@
+\section{Description du fonctionnement du code}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c}
+    \toprule
+    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    %Main
+    $Q_r$ & root_biomass \\
+    $Q_s$ & stem_biomass \\
+    $Q_l$ & green_leaf_biomass \\
+    $Q_g$ & grain_biomass \\
+    $Q_y$ & yellow_leaf_biomass \\
+    $\theta$ & soil_humidity \\
+    $\tau$ & thermal_time \\
+    $R$ & soil_contained_water \\
+    $E_s$ & soil_water_evaporated \\
+    $T_p$ & water_transpired \\
+    $z_r$ & root_horizon \\
+    SSI & stomatal_stress_index \\
+    TSI & thermal_stress_index \\
+    TSI$_{\uparrow}$ & thermal_stress_index \\
+    TSI$_{\downarrow}$ & soil_thermal_stress_index \\
+    % Auxiliary
+    $q$ & produced_biomass \\
+    LAI & leaf_area_index \\
+    E\textunderscript{spot} & soil_req_evaporation \\
+    T\textunderscipt{ppot} & req_transpiration \\
+    E\textunderscript{smax} & soil_max_evaporation \\
+    T\textunderscript{pmax} & max_transpiration \\
+    T$_{\downarrow}$ & soil_temperature \\
+    % Temporary
+    $\alpha_g$ & alpha_g \\
+    $\alpha_s$ & alpha_s \\
+    $\alpha_r$ & alpha_r \\
+    $\alpha_l$ & alpha_l \\
+    $\beta_s$ & beta_s \\
+    $\beta_l$ & beta_l \\
+    $\gamma_l$ & gamma_l \\
+    $\gamma_y$ & gamma_y \\
+    \bottomrule
+  \end{tabular}
+  \caption{Variables d'\emph{état} du modèle mathématique et leurs noms
+  dans l'implémentation.}
+  \label{table:state_var}
+\end{table}
+
+\begin{table}[htb!]
+  \centering
+  \begin{tabular}{c|c}
+    \toprule
+    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    $T$ & vec_ext_temperature \\
+    PAR & vec_par \\
+    $W$ & vec_water_input \\
+    ET0 & vec_et0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Variables de \emph{contrôle} du modèle mathématique et leurs noms
+  dans l'implémentation.}
+  \label{table:control_var}
+\end{table}
+
+    
+    t_c::Float64
+    t_opt::Float64
+    tau_g::Float64
+    mu_g::Float64
+    sigma_g::Float64
+    eta_s::Float64
+    eta_l::Float64
+    tau_l::Float64
+    mu_l::Float64
+    sigma_l::Float64
+    tau_y::Float64
+    mu_y::Float64
+    sigma_y::Float64
+    rue::Float64
+    lambda::Float64
+    rho_l::Float64
+    k_c::Float64
+    k_s::Float64
+
+    #Soil and root parameters
+    theta_max::Float64
+    theta_min::Float64
+    z_s::Float64
+    z_m::Float64
+    rho_r::Float64
+    t_soil_c::Float64
+    t_soil_opt::Float64
