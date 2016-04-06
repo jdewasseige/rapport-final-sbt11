@@ -1,0 +1,51 @@
+\subsection{Markov}
+
+Ces modèles sont des \emph{modèles de Markov} à temps discret. 
+Soit $(t_{n}) n \in [0,N]$, la séquence finie des temps successifs correspondants
+aux étapes de l’évolution. On note $X_{n}\in \reels^d$
+l'ensemble des variables caractéristiques du système à $t_{n}$, $U_n \in \reels^u$
+l'ensemble des variables exogènes (entrées, contrôle...) à $t_{n}$,
+et $P\in R^p$ le vecteur de paramètres du modèle.
+Comme pour la plupart des systèmes biologiques, $X_{n}$ peut ne pas être
+complètement accessible à l'observation, et on note donc $Y_n \in \reels^{q_n}$
+l'ensemble observé/mesuré des variables au temps $n$.
+On note $Y=Y_n, n \in [0,N]$.
+La fonction de densité initiale pour $X_0$ est $\mu_p$ 
+et la densité de transition de Markov est $f_{n,P,U_n}$ :
+
+\[
+	X_0 \sim \mu_p \quad \text{ et } \quad
+	 X_{n+1} \mid (X_n=x) \sim f_{n,P,U_n}(.\mid x)	\quad \forall n \in [0;N-1]
+\]
+
+L'observation $Y_n$ dépend de $X_n$ et la densité conditionnelle 
+est donnée par $g_{n,P}$:
+\[Y_n \mid (X_n = x) \sim g_{n,P} \]
+
+Ce cadre stochastique permet d'aboutir et de décrire les modèles dynamiques discrets déterministes, en écrivant : 
+\[
+\left\{
+    \begin{array}{ll}
+        X_{n+1} &= F_n(X_n,U_n,P) \\
+        Y_n &= G_n(X_n,P)
+    \end{array}
+\right.
+\]
+
+describes how an important category of plant growth models can be set in this framework. For example, for functional-structural models that describe biomass budget during plant growth (see for example LIGNUM [52] or GREENLAB [46]), the state variables correspond to daily biomass accumulation and to masses of plant organs according to their categories, the parameters are genotype specific, and the external variables Un correspond to environmental variables (radiation, temperature, soil water content ...).
+
+Generally, not all the state variables can be observed experimentally (for example daily biomass pro- duction) and the experimentation being heavy (specifically when it comes to the masses of individual organs), observations are not done at all time steps. If we denote by O the set of all time step indexes corresponding to observation stages:
+\[
+  \mathcal{O} = \left\{i \in [1; N ] \text{ où } 
+  t_i \text{ est un temps d'observation}\right\} 
+\]
+we then have qi > 0 if and only if i  O (where we recall that qi is the dimension of Yi). Note also that the non-zero qi have no reason to be identical (as illustrated for example in [45] for a model of maize growth, in which at some stages individual plants were measured at organ level, and at other stages only compartment data were available, corresponding to different Gi).
+
+%1.1 Processus de Markov :
+%
+%Définition 1 : Le processus 〖〖(X〗_t)〗_(t≥0) est dit de Markov, si :
+%	Pour tout t_1<t_2…< t_(n+1), pour tout x_1,…,x_(n+1)  :
+%P(X_(t_(n+1) )=x_(n+1)∕X_(t_1 )=x_1,…,X_(t_n )=x_n )=P(X_(t_(n+1) )=x_(n+1)⁄X_(t_n ) =x_n)
+%	Pour tout s et t, pour tout x,y∈E, P(X_(t+s)=y⁄X_s =x) ne dépend que de t.
+%
+%Remarque : L’axiome (1) (axiome de Markov) traduit que la probabilité de n’importe quel comportement futur, le présent étant connu, n’est pas modifié par toute connaissance supplémentaire du passé.
