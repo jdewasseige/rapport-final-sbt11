@@ -1,3 +1,6 @@
+
+
+
 \section{Méthodologies}
 Nous présenterons dans cette section l'organisation générale du groupe et les outils qui nous aidé tout au long de ce projet.
 On abordera d'abord les outils que nous avons utilisés pour partager 
@@ -6,7 +9,7 @@ On présentera ensuite notre manière de gérer la bibliographie
 ainsi que les logiciels utilisés pour ne pas perdre les sources visitées.
 On détaillera ensuite l'organisation interne du groupe, et
 plus précisemment le système mis en place pour optimiser la communication.
-On décrira finalement les problèmes les difficultés auxquels nous avons été confrontés tout au long de ce projet.
+On décrira finalement les problèmes et les difficultés auxquels nous avons été confrontés tout au long de ce projet.
 
 
 \subsection{Outils de travail collaboratif}
@@ -91,31 +94,22 @@ Par exemple dans ce projet nous avons les \emph{channels} suivantes :
 \texttt{planning} et \texttt{dev\_plate-forme}.
 On trouve aussi un système d'historique et de gestion de fichiers efficace.
 
-L'ensemble des tâches ainsi que leur répartition pendant l'année
-est associé au planning \textsc{Gantt} qui se trouve
-dans l'Annexe~\ref{ann:planning} à la page~\pageref{ann:planning}.
-
-\subsection{Agenda}
-
-Nos travaux au cours de ce semestre sont présentés dans ce tableau.
-
-IMPOSSIBLE DE METTRE LA PHOTO
-
-%\begin{figure}[h]
-%	\begin{center}
-%  \includegraphics[scale=0.51]{./planning.png}
-%  \caption{Agenda de nos travaux au cours du second semestre.}
-%  \label{fig:agenda}
-%	\end{center}
-%\end{figure}
+\subsection{Planning}
+L'organisation de nos travaux au cours de ce semestre
+sont présentés en annexe~\ref{ann:planning}
+dans le tableau~\ref{fig:planning}
+à la page~\pageref{fig:planning}.
+Il contient ce qui devait être fait en théorie et à quel moment,
+certaines semaines voyaient leurs tâches réalisées entièrement
+tandis que d'autre non.
+Nous présentons donc pour la dernière partie de cette section
+les différentes complications rencontrées.
 
 \subsection{Difficultés rencontrées}
 
 Au cours de ce projet, nous avons été confrontés à de nombreuses difficultés.
 
 \subsubsection{Difficultés de gestion du temps}
-
-
 
 Le temps fût une difficulté récurrente. Nous n'étions sans doute pas prêt à gérer de nous-même notre temps. C'est ainsi que nous avons réalisé l'opportunité que constitue ce type de projet. 
 Jusqu'à maintenant, nous avions été confrontés la plupart du temps à des questions précises dans des examens, dont l'emploi du temps nous est imposé à l'avance. 
@@ -149,25 +143,10 @@ Cela a permis d'avoir des valeurs plus réalistes pour le LAI et la quantité de
 
 	\item Mais nous obtenions toujours une trop grande quantité de grain (2500). 
 
-Cela était dû au fait qu'après la maturité de la plante, toute la biomasse de la tige était réalloué aux grains, ce qui n'est pas réaliste non plus. En effet, une partie des tiges subit une sénescence trop avant de pouvoir se transformer en grains de blé. On crée donc un compartiment "tige jaune", suivant le modèle qu'on a feuille jaune/feuille verte. La biomasse de ce compartiment ne sera jamais allouée aux grains.
+Cela était dû au fait qu'après la maturité de la plante, toute la biomasse de la tige était réalloué aux grains, ce qui n'est pas réaliste non plus. En effet, une partie des tiges subit une sénescence trop avant de pouvoir se transformer en grains de blé. On crée donc un compartiment ``tige jaune'', suivant le modèle qu'on a feuille jaune/feuille verte. La biomasse de ce compartiment ne sera jamais allouée aux grains.
 Après ajout de ce compartiment au modèle, nous avons obtenu des valeurs de grain finales légèrement en dessous de 2000, ce qui était encore trop. 
 Nous regarderons après la soutenance si le modèle peut encore être affiné, mais surtout nous essaierons de jouer sur les paramètres du modèle pour obtenir des valeurs encore plus cohérentes.
 
 
 \end{itemize}
-
-%Une fois ceci corrigé, nous obtenions cette fois des récoltes beaucoup trop élevées, plus de 3000 en grains et environ 16 en LAI, alors que les valeurs attendues sont respectivement d'environ 1000 et entre 5 et 6.
-%Cela était dû à l'abscence de prise en compte dans le modèle théorique du temsp de montaison, temps à partir duquel la tige commence à croître de manière très rapide. Car à partir de ce temps, l'essentiel de la biomasse est allouée à la tige.
-%Ainsi, après allocation à la graine (celle-ci étant nulle au départ puis tendant vers 1 très rapidement à maturité de la plante), on répartissait par défaut (sans stress hydrique ou thermique) la biomasse produite aux compartiments restants (tige, racines, et feuilles) de façon égale. Ceci est peu réaliste. Nous avons donc introduit un temps de montaison, tout d'abord de manière assez abrupte. Il s'agit de ne rien allouer à la tige au départ, puis de lui en allouer de plus en plus. Nous nous sommes contenté de décrire deux régimes, un régime pré montaison et un post, avec une transition instantanée. Plus tard nous comptons faire une transition progressive avec une loi lognormale et rentrer ses paramètres dans le modèle.
-%Cela permis d'avoir des valeurs réalistes pour le LAI et la quantité de grain est descendu à 2500.
-%Enfin, la trop grande quantité de grain, dernière grosse incohérence qu'il restait était du au fait que dans le modèle qu'on nous a donné, au moment vers la maturité de la plante, toute la biomasse de la tige était réaloouée au grain ce qui n'est pas réaliste. Nous avons donc rajouté un comporatiment "tige jaune", une sénessence de la tige en tige jaune de façon à ce que une partie de la biomasse de la tige ne soit jamais allouée au grain.
-%Après l'ajout de ce compartiment au modèle nous avons obtenu des valeurs de grain finales autour de 2000, ce qui était encore trop. 
-%Nous pensons à regarder encore si le modèle peut améliorer, mais surtout à commencer à jouer sur les paramètres (cf perspectives)
- 
- 
-
-
-
-
-
 

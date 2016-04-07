@@ -4,7 +4,7 @@
 
 \usepackage[backend=biber]{biblatex}
 \addbibresource{./top/biblio.bib}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 \lstset{language=Julia}
 
@@ -40,7 +40,9 @@
 \begin{document}
 \input{./top/title}
 
+{\hypersetup{linkcolor=black}
 \tableofcontents
+}
 \newpage
 
 \input{./src/resume}
