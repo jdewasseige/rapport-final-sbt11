@@ -6,33 +6,48 @@ Après les divers corrections citées dans la partie méthodologie, nous avons o
 
 La simulation se fait sur 275 jours, avec un pas de discrétisation d'un jour. Les paramètres utilisés nous ont été donné par notre client, Pierre Carmier, ils correspondent à des paramètres réalistes et cohérents avec la littérature scientifique pour ce type de modèle et de plante. Les données environnementales correspondent à des données réelles qui nous ont aussi été fourni par le client Pierre Carmier.
 
-
-
 \subsubsection{Résultats considérés}
 
 Nous considérerons les sorties suivantes :
 
-\begin{figure}
+
+\begin{itemize}
+
+	\item \textbf{La masse du grain (fig.~\ref{fig:resultatGrain}):} C'est la donnée la plus importante et la plus intéressante à mesurer qui correspond à la récolte de céréale. On attend une valeur autour de 1000.
+	
+	\item \textbf{Le LAI (fig.~\ref{fig:resultatLAI}):} C'est l'indice de surface foliaire, décrit précédemment, il est directement lié à la masse du feuillage vert. On le préfère à ce dernier car les valeurs qu'il atteint classiquement sont connues : on attend un valeur entre 5 et 6.
+	
+	\item \textbf{La masse des tiges (fig.~\ref{fig:resultatStem}):} Son profil est intéressant à suivre car il est lié à deux moments critiques : le temps de montaison (temps à partir duquel la biomasse est allouée aux tiges en priorité) et un second temps de remobilisation de la biomasse de la tige (en même temps que celle des feuilles vertes) qui se transforme en grain.
+	
+	\item \textbf{La quantité d'eau dans le sol (fig.~\ref{fig:resultatWater}):} Une part importante du modèle est la simulation du comportement de l'eau dans le sol. Il est donc intéressant de voir de façon globale comment la quantité d'eau sur la couche du sol considérée évolue.
+	
+	\item \textbf{L'indice de stress hydrique (fig.~\ref{fig:resultatStressH}):} Il permet de voir à quel moment la plante manque d'eau et les influences que cela a sur la croissance de la plante.
+	
+	\item \textbf{L'indice de stress thermique (fig.~\ref{fig:resultatStressT}):} De même il permet de voir l'influence de la température sur la croissance de la plante .
+
+\end{itemize}
+
+\begin{figure}[h]
 
 \begin{center}
- \includegraphics[scale = 0.3]{./img/grain.png}
+ \includegraphics[scale = 0.5]{./img/grain.png}
  \caption{Biomasse de grain en fonction du temps}
  \label{fig:resultatGrain}
 \end{center}
 
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{center}
- \includegraphics[scale = 0.3]{./img/LAI.png}
+ \includegraphics[scale = 0.5]{./img/LAI.png}
  \caption{Indice LAI en fonction du temps}
  \label{fig:resultatLAI}
 \end{center}
 
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{center}
  \includegraphics[scale = 0.5]{./img/stem.png}
@@ -42,7 +57,7 @@ Nous considérerons les sorties suivantes :
 
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{center}
  \includegraphics[scale = 0.5]{./img/water.png}
@@ -51,7 +66,7 @@ Nous considérerons les sorties suivantes :
 \end{center}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{center}
  \includegraphics[scale = 0.5]{./img/waterStress.png}
@@ -61,7 +76,7 @@ Nous considérerons les sorties suivantes :
 
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{center}
  \includegraphics[scale = 0.5]{./img/thermicStress.png}
@@ -70,22 +85,6 @@ Nous considérerons les sorties suivantes :
 \end{center}
 
 \end{figure}
-
-\begin{itemize}
-
-	\item \textbf {La masse du grain \ref{fig:resultatGrain}:} C'est la donnée la plus importante et la plus intéressante à mesurer qui correspond à la récolte de céréale. On attend une valeur autour de 1000.
-	
-	\item \textbf{Le LAI \ref{fig:resultatLAI}:} C'est l'indice de surface foliaire, décrit précédemment, il est directement lié à la masse du feuillage vert. On le préfère à ce dernier car les valeurs qu'il atteint classiquement sont connues : on attend un valeur entre 5 et 6.
-	
-	\item \textbf{La masse des tiges \ref{fig:resultatStem}:} Son profil est intéressant à suivre car il est lié à deux moments critiques : le temps de montaison (temps à partir duquel la biomasse est allouée aux tiges en priorité) et un second temps de remobilisation de la biomasse de la tige (en même temps que celle des feuilles vertes) qui se transforme en grain.
-	
-	\item \textbf{La quantité d'eau dans le sol \ref{fig:resultatWater}:} Une part importante du modèle est la simulation du comportement de l'eau dans le sol. Il est donc intéressant de voir de façon globale comment la quantité d'eau sur la couche du sol considérée évolue.
-	
-	\item \textbf{L'indice de stress hydrique \ref{fig:resultatStressH}:} Il permet de voir à quel moment la plante manque d'eau et les influences que cela a sur la croissance de la plante.
-	
-	\item \textbf{L'indice de stress thermique \ref{fig:resultatStressT}:} De même il permet de voir l'influence de la température sur la croissance de la plante .
-
-\end{itemize}
 
 \subsubsection{Résultats et commentaires}
 

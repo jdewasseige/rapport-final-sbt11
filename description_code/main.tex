@@ -1,4 +1,7 @@
-\section{Description du fonctionnement du code}
+\section{Code et modèle}
+\input{./src/modele}
+\newpage
+\subsection{Description du fonctionnement du code}
 Dans un premier temps, nous avons construit un modèle informatique à partir
 du modèle mathématique fourni~\cite{lnas_model_wheat}.
 
@@ -9,15 +12,15 @@ Les tableaux~\ref{table:state_var},~\ref{table:control_var} et~\ref{table:param_
 contiennent respectivement les variables d'\emph{état}, temporaires, auxiliaires et principales, 
 les variables \emph{environnementales} et les \emph{paramètres} de la tige, du sol et des racines.
 
-La deuxième partie du travail consistait à définir les différentes fonctions (appelées "modules" avec les conventions Pygmalion)
+La deuxième partie du travail consistait à définir les différentes fonctions (appelées ``modules'' selon les conventions Pygmalion)
 qui mettent à jour les variables d'état et paramètres du 
 temps $n$ au temps $n+1$.
-L'implémentataion de chacune d'entre elle est basée sur l'algorithme générique~\ref{lst:genfun}.
+L'implémentation de chacune d'entre elle est basée sur l'algorithme générique~\ref{lst:genfun}.
 On retrouve à l'entrée les variables d'états \texttt{xn} et \texttt{xnplus1},
 le temps \texttt{n}, les variables de contrôles \texttt{u}, les paramètres \texttt{p}.
 On va ensuite mettre à jour une composante de \lstinline|xnplus1| par rapport à \texttt{xn} en fonction de \texttt{n}, \texttt{u} et \texttt{p} en suivant la description du modèle.
 
-\begin{algorithm}[t]
+\begin{algorithm}[h]
   \caption{Algorithme générique qui sert de base pour l'implémentation
 des fonctions. La fonction $f$ n'est pas définie mais sert de placeholder
 pour représenter les opérations nécessaires à la mise à jour de \lstinline|xnplus1|.}
@@ -35,15 +38,14 @@ pour représenter les opérations nécessaires à la mise à jour de \lstinline|
 \lstset{        literate=
                        {==}{$={}$}{1}}
 
-À titre d'exemple, on va utiliser la fonction \lstinline|get_pot_evaporation| qui met
+À titre d'exemple, on présente la fonction \lstinline|get_pot_evaporation| qui met
 à jour l'évaporation requise en fonction des conditions environnementales
 selon l'équation~\ref{eq:req_evap}.
 \begin{equation}
-  \text{Espot}^{(n)} = K_s \text{ ET0 } \exp{-\lambda \text{ LAI}^{(n)}}
+  \text{Espot}^{(n)} = K_s \text{ ET0 } e^{-\lambda \text{ LAI}^{(n)}}
   \label{eq:req_evap}
 \end{equation}
-En suivant la démarche~\ref{lst:genfun}, on obtient en \textsc{Julia}
-l'implémentation suivante.
+On obtient en \textsc{Julia} l'implémentation suivante.
 \begin{lstlisting}
 function get_pot_evaporation!(n, xn, u, p, xnplus1)
   xnplus1.soil_req_evaporation = 
