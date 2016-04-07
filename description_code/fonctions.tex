@@ -1,0 +1,52 @@
+\subsection{Description des fonctions}
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item \texttt{get_pot_evaporation       }
+  \[
+    \text{Espot}^{(n)} = K_s \text{ ET0 } e^{-\lambda \text{ LAI}^{(n)}}
+  \]
+\item \texttt{get_pot_transpiration     }
+  \[
+    \text{Espot}^{(n)} = K_s \text{ ET0 } (1 - e^{-\lambda \text{ LAI}^{(n)}})
+  \]
+\item \texttt{get_max_evaporation       }
+  \[
+    \text{Esmax}^{(n)} = \int_0^{z_M} \left(min[\theta^{(n)}(z),
+    \theta_{min}(z)]e^{-z/z_S} + \frac{max[0,\theta^{(n)}(z)
+    - \theta_{min}(z)]e^{-z/z_S}}{max[1,e^{-z/z_S}
+    + e^{-z/z_r^{(n)}}]}\right)
+  \]
+\item \texttt{get_max_transpiration     }
+  \[
+    \text{Esmax}^{(n)} = \int_0^{z_M} \left(
+    \frac{max[0,\theta^{(n)}(z)
+    - \theta_{min}(z)]e^{-z/z_r^{(n)}}}{max[1,e^{-z/z_S}
+    + e^{-z/z_r^{(n)}}]}\right)
+  \]
+\item \texttt{update_water1             }
+\item \texttt{update_water2             }
+\item \texttt{hydric_stress             }
+\item \texttt{compute_soil_temperature  }
+\item \texttt{down_thermal_stress       }
+\item \texttt{surface_thermal_stress    }
+\item \texttt{thermal_time              }
+\item \texttt{lai                       }
+\item \texttt{production                }
+\item \texttt{allocation_g              }
+\item \texttt{allocation_r              }
+\item \texttt{allocation_s              }
+\item \texttt{allocation_l              }
+\item \texttt{remobilisation_s          }
+\item \texttt{remobilisation_l          }
+\item \texttt{senescence_l              }
+\item \texttt{senescence_y              }
+\item \texttt{update_root_horizon       }
+\item \texttt{update_root_biomass       }
+\item \texttt{update_green_leaf_biomass }
+\item \texttt{update_stem_biomass       }
+\item \texttt{update_grain_biomass      }
+\item \texttt{update_yellow_leaf_biomass}
+\item \texttt{initialize                }
+\item \texttt{transition                }
+\end{itemize}

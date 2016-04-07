@@ -1,91 +1,59 @@
 \section{Description du fonctionnement du code}
+Dans un premier temps, nous avons construit un modèle informatique à partir
+du modèle mathématique fourni~\cite{lnas_model_wheat}.
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c|c}
-    \toprule
-    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
-    %Main
-    $Q_r$ & root_biomass \\
-    $Q_s$ & stem_biomass \\
-    $Q_l$ & green_leaf_biomass \\
-    $Q_g$ & grain_biomass \\
-    $Q_y$ & yellow_leaf_biomass \\
-    $\theta$ & soil_humidity \\
-    $\tau$ & thermal_time \\
-    $R$ & soil_contained_water \\
-    $E_s$ & soil_water_evaporated \\
-    $T_p$ & water_transpired \\
-    $z_r$ & root_horizon \\
-    SSI & stomatal_stress_index \\
-    TSI & thermal_stress_index \\
-    TSI$_{\uparrow}$ & thermal_stress_index \\
-    TSI$_{\downarrow}$ & soil_thermal_stress_index \\
-    % Auxiliary
-    $q$ & produced_biomass \\
-    LAI & leaf_area_index \\
-    E\textunderscript{spot} & soil_req_evaporation \\
-    T\textunderscipt{ppot} & req_transpiration \\
-    E\textunderscript{smax} & soil_max_evaporation \\
-    T\textunderscript{pmax} & max_transpiration \\
-    T$_{\downarrow}$ & soil_temperature \\
-    % Temporary
-    $\alpha_g$ & alpha_g \\
-    $\alpha_s$ & alpha_s \\
-    $\alpha_r$ & alpha_r \\
-    $\alpha_l$ & alpha_l \\
-    $\beta_s$ & beta_s \\
-    $\beta_l$ & beta_l \\
-    $\gamma_l$ & gamma_l \\
-    $\gamma_y$ & gamma_y \\
-    \bottomrule
-  \end{tabular}
-  \caption{Variables d'\emph{état} du modèle mathématique et leurs noms
-  dans l'implémentation.}
-  \label{table:state_var}
-\end{table}
+Il s'agissait d'abord d'assigner à chaque variable du modèle un représentant
+dans notre programme, en rendant ces derniers assez explicites
+afin d'être plus efficace pour l'implémentation des fonctions.
+Les tableaux~\ref{table:state_var},~\ref{table:control_var} et~\ref{table:param_var}
+contiennent respectivement les variables d'\emph{état} auxiliaires et principales, 
+les variables \emph{environnementales} et les \emph{paramètres} de la tige, du sol et des racines.
 
-\begin{table}[htb!]
-  \centering
-  \begin{tabular}{c|c}
-    \toprule
-    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
-    $T$ & vec_ext_temperature \\
-    PAR & vec_par \\
-    $W$ & vec_water_input \\
-    ET0 & vec_et0 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Variables de \emph{contrôle} du modèle mathématique et leurs noms
-  dans l'implémentation.}
-  \label{table:control_var}
-\end{table}
+\input{./description_code/varNames}
 
-    
-    t_c::Float64
-    t_opt::Float64
-    tau_g::Float64
-    mu_g::Float64
-    sigma_g::Float64
-    eta_s::Float64
-    eta_l::Float64
-    tau_l::Float64
-    mu_l::Float64
-    sigma_l::Float64
-    tau_y::Float64
-    mu_y::Float64
-    sigma_y::Float64
-    rue::Float64
-    lambda::Float64
-    rho_l::Float64
-    k_c::Float64
-    k_s::Float64
+La deuxième partie du travail consistait à définir les différentes fonctions
+qui mettent à jour les variables d'état et paramètres du 
+temps $n$ au temps $n+1$.
+L'implémentataion de chacune d'entre elle est basée sur l'algorithme générique~\ref{alg1}.
+On retrouve à l'entrée les variables d'états \texttt{xn} et \texttt{xnplus1},
+le temps \texttt{n}, les variables de contrôles \texttt{u}, les paramètres \texttt{p}
+et éventuellement des informations supplémentaires qui dépendent
+du rôle précis de la fonction.
+On va ensuite mettre à jour une composante de \lstinline{xnplus1}
+en suivant la description du modèle.
 
-    #Soil and root parameters
-    theta_max::Float64
-    theta_min::Float64
-    z_s::Float64
-    z_m::Float64
-    rho_r::Float64
-    t_soil_c::Float64
-    t_soil_opt::Float64
+\begin{algorithm}[caption={Algorithme générique qui sert de base pour l'implémentation
+  des fonctions. La fonction $f$ n'est pas définie mais sert de placeholder
+  pour représenter les opérations nécessaires à la mise à jour de xnplus1.}, label={genfun}]
+ input: int n, State Vector xn, Control Vector u, Parameters Vector p, State Vector xnplus1
+ output: None
+ begin
+   xnplus1.composante $\gets$ f(p.composante, u.composante, xn.composante)
+ end       
+\end{algorithm}
+
+À titre d'exemple, on va utiliser la fonction \texttt{get\_pot\_evaporation} qui met
+à jour l'évaporation requise en fonction des conditions environnementales
+selon l'équation~\ref{eq:req_evap}.
+\begin{equation}
+  \text{Espot}^{(n)} = K_s \text{ ET0 } \exp{-\lambda \text{ LAI}^{(n)}}
+  \label{eq:req_evap}
+\end{equation}
+En suivant la démarche~\ref{genfun}, on obtient en \textsc{Julia}
+l'implémentation suivante.
+\lstlisting{
+function get\_pot\_evaporation!(n, xn, u, p, xnplus1)
+	xnplus1.soil\_req\_evaporation = p.k\_s * u.ET0[n] * 
+  exp( -p.lambda * xn.leaf\_area\_index) 
+end
+}
+
+
+% On retrouvera finalement trois fonctions ne suivant pas l'algorithme générique
+% \begin{enumerate}
+%   \item \texttt{initialize} qui va initialiser les différentes composantes de x0,
+%   \item \text{transition} qui va créer le vecteur xnplus1 et exécuter toutes les fonctions,
+%   \item \text{observer\_function} [???].
+% \end{enumerate}
+
+

@@ -1,0 +1,95 @@
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c}
+    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    $Q_r$ & root\_biomass \\
+    $Q_s$ & stem\_biomass \\
+    $Q_l$ & green\_leaf\_biomass \\
+    $Q_g$ & grain\_biomass \\
+    $Q_y$ & yellow\_leaf\_biomass \\
+    $\theta$ & soil\_humidity \\
+    $\tau$ & thermal\_time \\
+    $R$ & soil\_contained\_water \\
+    $E_s$ & soil\_water\_evaporated \\
+    $T_p$ & water\_transpired \\
+    $z_r$ & root\_horizon \\
+    SSI & stomatal\_stress\_index \\
+    TSI & thermal\_stress\_index \\
+    TSI$_{\uparrow}$ & thermal\_stress\_index \\
+    TSI$_{\downarrow}$ & soil\_thermal\_stress\_index \\
+    % Auxiliary
+    $q$ & produced\_biomass \\
+    LAI & leaf\_area\_index \\
+    E\textsubscript{spot} & soil\_req\_evaporation \\
+    T\textsubscript{ppot} & req\_transpiration \\
+    E\textsubscript{smax} & soil\_max\_evaporation \\
+    T\textsubscript{pmax} & max\_transpiration \\
+    T$_{\downarrow}$ & soil\_temperature \\
+    % Temporary
+    $\alpha_g$ & alpha\_g \\
+    $\alpha_s$ & alpha\_s \\
+    $\alpha_r$ & alpha\_r \\
+    $\alpha_l$ & alpha\_l \\
+    $\beta_s$ & beta\_s \\
+    $\beta_l$ & beta\_l \\
+    $\gamma_l$ & gamma\_l \\
+    $\gamma_y$ & gamma\_y \\
+  \end{tabular}
+  \caption{Variables d'\emph{état} du modèle mathématique et leurs noms
+  dans l'implémentation.}
+  \label{table:state_var}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{c|c}
+    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    $T$ & vec\_ext\_temperature \\
+    PAR & vec\_par \\
+    $W$ & vec\_water\_input \\
+    ET0 & vec\_et0 \\
+  \end{tabular}
+  \caption{Variables de \emph{contrôle} du modèle mathématique et leurs noms
+  dans l'implémentation.}
+  \label{table:control_var}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{c|c}
+    \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    $t_c$ & t\_c \\
+    $t_{opt}$ & t\_opt \\
+    $\mu_g$ & mu\_g \\
+    $\sigma_g$ & sigma\_g \\
+    $\eta_s$ & eta\_s \\
+    $\eta_l$ & eta\_l \\
+    $\tau_l$ & tau\_l \\
+    $\mu_l$ & mu\_l \\
+    $\sigma_l$ & sigma\_l \\
+    $\tau_y$ & tau\_y \\
+    $\mu_y$ & mu\_y \\
+    $\sigma_y$ & sigma\_y \\
+    RUE & rue \\
+    $\lambda$ & lambda \\
+    $\rho_l$ & rho\_l \\
+    $K_c$ & k\_c \\
+    $K_s$ & k\_s \\
+    $\theta_{max}$ & theta\_max \\
+    $\theta_{min}$ & theta\_min \\
+    $z_s$ & z\_s \\
+    $z_m$ & z\_m \\
+    $\rho_r$ & rho\_r \\
+    $t_{\downarrow c}$ & t\_soil\_c \\
+    $t_{\downarrow opt}$ & t\_soil\_opt \\
+  \end{tabular}
+  \caption{Paramètres du modèle mathématique et leurs noms
+  dans l'implémentation.}
+  \label{table:parameters_var}
+\end{table}
+  
+
+
+
+
