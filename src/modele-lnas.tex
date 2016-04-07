@@ -1,0 +1,70 @@
+Ce modèle était d'abord utilisé pour modéliser la betterave, 
+plus simple à modéliser que le blé. 
+En effet, pour la betterave il suffit de modéliser 
+ses racines (partie utile) et ses feuilles.
+On va modéliser le blé, on rajoute la tige et les grains (partie utile du blé)
+pour maximiser le rendement des cultures en minimisant l’apport d’intrants.
+Nous allons donc utiliser la plateforme Pygmalion pour implémenter ce modèle du blé,
+en nous basant sur un document fourni par le client.
+
+Le modèle LNAS est un modèle de Markov caché : 
+\begin{itemize}
+  \item $n$  temps (discret)     
+  \item $X_n$ variable au temps $n$       
+  \item $Q\sub{grain}, Q\sub{leaf}... $ biomasse des grains, feuilles...      
+  \item $f$ fonction qui permet de passer du temps $n$ au temps $n+1$     
+  \item $P$ paramètres      
+  \item En précipations, température... au temps $n$
+\end{itemize}
+
+\begin{equation}
+  X_{n+1} = f(X_n,E_n,P,n)
+\end{equation} 
+
+$Q\sub{prod}(n)$ proportionnelle à $(1-\exp{(-\lambda \, \text{LAI}(n))})$ 
+avec LAI la quantité lumineuse reçue par la plante
+
+C’est un modèle de Markov caché, il n'y a pas de mémoire du passé.
+\[
+  P(X_{n+1}/X_0,…,X_n) = P(X_{n+1} / X_n) 
+\] 
+
+On déduit $Q\sub{grain}(n)$... grâce à $X_n$ et la fonction d'allocation de biomasse.
+
+
+
+\begin{itemize}
+\item $\mathrm{Q}(n)$ : Production de biomasse au jour n par unité de surface.
+\item $\alpha$  :fonction de répartition
+\item $\beta_o$  :fonction de remobilisation
+\item $\gamma$ : fonction de sénescence
+\item $q^{(n)}$: production de biomasse au jour n 
+\item $\mu_g=\log (\tau_{1/2}-\tau_g)$ : espérance de la distribution
+\item $\sigma_g$: variance de la distribution
+\item $\tau_{1/2}$ : temps thermique où $\alpha_g$ vaut 1/2
+\item $erf(x)$: fonction d'erreur
+\item $\eta_o$: fraction de biomasse 
+\item $RUE$ : efficience de l'utilisation lumineuse
+\item $\mathrm{PAR}(t)$ : quantité de radiations photosynthétiquement actives par unité de surface
+\item $LAI^{(n)} = S^{(n)}_l/S = \rho_l Q^{(n)}_l $ : Leaf Area Index pour la loi de Beer-Lambert 
+\item $\lambda = \sin(\psi)$ avec $\psi$ l'angle moyen des feuilles avec lumière incidente. 
+\item $SSI^{(n)}$: indice de stress stomatique (partie hydrique)
+\item $TSI^{(n)}$: indice de stress thermique
+\end{itemize}
+L'équation d'équilibre de l'eau
+\[ {R^{(n+1)}}=R^{(n)}+W^{(n)}-Es^{(n)}-Tp{(n)}-d{(n)}\]
+L'eau dans la terre dépend de la profondeur z,
+\[ {R^{(n)}}=\int_0^{z_M}dz \theta^{(n)}(z) \]
+L'évaporation et la transpiration demandées par la plante sont exprimées comme
+\[ {Espot^{(n)}}=K_sET0^{(n)}e^{-\lambda LAI^{(n)}}\]
+\[ {Tppot^{(n)}}=K_cET0^{(n)}(1-e^{-\lambda LAI^{(n)}})\]
+
+L'eau effectivement transpirée ou évaporée sera le minimum  entre l'évaporation/transpiration requise et l'évaporation/transpiration maximale qui sont calculées selon les propriétés du sol et de la plante (non détaillé dans ce document).
+
+\begin{itemize}
+\item $R^{(n)}$: l'eau dans la terre du jour n
+\item $W^{(n)}$ : l'eau issue de l'irrigation et de  précipitations au jour n
+\item $Es^{(n)}$: l'eau perdue par évaporation depuis la terre
+\item $Tp$: transpiration
+\item $d$: fonction qui prend en compte la saturation d'eau dans la terre
+\end{itemize}
