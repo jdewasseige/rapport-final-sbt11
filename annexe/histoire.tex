@@ -1,0 +1,107 @@
+\section{Histoire de la modélisation}
+\label{ann:histoire}
+
+\subsection{Histoire de la modélisation de la croissance des plantes}
+Nous présentons dans cette partie tout d'abord l'origine
+de la botanique et de l'agronomie. Les premièrs modèles
+de croissance des plantes seront ensuite décrits,
+puis on expliquera les avancées potentielles apparues avec
+l'avènement de l'informatique.
+Finalement, un modèle particulièrement intéressant,
+le modèle GreenLab, sera présenté.
+
+Cette section reprend la démarche suivie dans 
+l'article \emph{Une histoire de la modélisation des plantes}, \textsc{Cournède} et al., 2009~\cite{histoire_mod_plantes}.
+
+\subsubsection{Débuts de la botanique et de l'agronomie}
+L’étude des plantes a très tôt été un domaine privilégié du savoir humain.
+En effet, les plantes sont un élément majeur des écosystèmes dans lesquels l’homme évolue. Elles sont source de nourriture, de remèdes, de médicaments,
+de matériaux, d’esthétique. 
+Enfin, elles sont un objet scientifique d’intérêt qui a très tôt aiguisé le sens de l’observation, l’esprit d’analyse, de synthèse, de déduction des hommes. 
+La connaissance des plantes s’est accrue lors de l’histoire des hommes, qui ont développé la cueillette, l’agriculture, l’usage des plantes
+médicinales. 
+La connaissance et l’inventaire des variétés de plante ont ainsi été des
+enjeux majeurs car ils permettaient la connaissance de nouveaux remèdes
+et étaient sources de nourritures et matériaux. 
+L’homme a ainsi cherché à regrouper, croiser, faire croître 
+et conserver les espèces qui lui étaient utiles.
+
+La botanique, issue de l’étude de l’anatomie des plantes,
+est une science très ancienne.
+En témoignent les traités de classification de plantes, comme ceux
+d’Aristote (vers -300), ou encore l’inventaire et la description de
+centaines de plantes médicinales par Dioscoride (1er siècle),
+ainsi que les traités chinois qui inventorient les espèces utiles à
+l’agriculture et à la médecine traditionnelle avec de premiers efforts
+de classification. 
+Efforts de classification qui se poursuivront vraiment en Europe à partir du
+XVIIème siècle avec les premières distinctions par famille, par genre,
+par espèce, par structure de graine (\emph{Les éléments de Botanique} par
+Joseph Pitton de Tournefort en $1656-1708$, \emph{Systema naturae} en 1735
+et \emph{Philosophia botanica} en 1751 par Linné et les travaux de la
+famille de Jussieu pendant le XVIIIème siècle).
+Ces classifications ne sont pas objectives, 
+elles sont le fruit d’un raisonnement \emph{empirique}.
+
+En parallèle, l’agronomie se développe au XVIIème siècle en Europe
+et s’intéresse au processus de croissance et développement des plantes.
+Des travaux d’abord très pratiques sont réalisés sur des méthodes agricoles 
+(labour, ensemencement, taille, greffes…), notamment ceux de
+Jean-Baptiste de la Quintinie et d'Olivier de Serres.
+
+Au XIXème, les processus biologiques commencent à être étudiés de façon plus
+précise, en particulier la provenance du carbone, de l’azote,
+de l’oxygène et de l’eau dans la plante.
+On s'intéresse également aux problématiques de nutrition et
+au rôle de organes, comme en témoignent les ouvrages
+\emph{Recherces chimiques sur la végétation} de Théodore de Saussure en 1804.
+Quelques années plus tard, on découvre la respiration, la photosynthèse
+(voir équation~\ref{eq:photosynthese} à la 
+page~\pageref{subsubsec:photosynthese}).
+
+La physiologie, science qui étudie le fonctionnement des plantes,
+se sépare alors de la botanique qui se contente de les classifier.
+
+\subsubsection{Les premiers modèles}
+
+La modélisation mathématique précise (qui va au-delà de la simple
+description qualitative et fournit une description quantitative
+avec des capacités prédictives) n’arrive pas tout de suite en biologie. 
+Le développement de la biologie n’a pas suivi le même schéma que celui de
+nombreuses autres sciences comme la physique, où l’observation a permis de
+tirer des concepts quantitatifs au niveau macroscopique
+(loi de Mariotte par exemple) avant de les expliquer par des lois qui s’appliquent au niveau microscopique (Boltzmann). De même pour la mécanique, l’optique, l’électricité avec des applications qui n’ont pas eu à attendre la compréhension au niveau atomique. La biologie végétale par contre a paradoxalement été mieux comprise au niveau cellulaire et microscopique sans que des lois précises macroscopiques en soient tirées.
+
+Trois types de modèles vont se développer et vont changer cela : les modèles de l’architecture botanique, les modèles de production en agronomie et les modèles géométriques en informatique. Ainsi la convergence de ces trois modèles initialement séparés va permettre récemment les débuts de la modélisation précise de la croissance des plantes à la fin du XXème siècle.  
+
+L’architecture botanique va considérer la structure des plantes non plus comme une description statique issue de la classification traditionnelle mais comme le résultat de l’organogénèse des méristèmes, la cinétique de mise en place des axes feuillés, en se basant sur une combinatoire des modes de croissance, de ramification et de floraison. (Francis Hallé et Roelof Oldeman).
+
+En parallèle, l’agronomie s’est attaquée à la prédiction de la production surfacique de biomasse. Les modèles hollandais comme celui de De Witt (1970) en sont les précureurs. On ne considère plus la plante en elle-même mais la surface foliaire au mètre carré LAI\footnote{LAI : Leaf Area Index.
+Cela correspond au ratio entre la surface totale supérieure des feuilles
+vertes et la surface de sol sur laquelle se développe la culture.} 
+et la production végétale par mètre carré.
+Les organes ne sont plus considérés individuellement mais par compartiments. A chaque compartiment est allouée une certaine quantité de la biomasse créée en fonction de sa force de 
+puits.
+La force de puits d'un organe est proportionelle à la quantité de biomasse qui sera allouée à cet organe.\cite[~p.229--231]{hopkins2003physiologie}
+
+Les agronomes ont ainsi montré que la production de biomasse est proportionnelle au LAI, ainsi qu'à l’énergie utile de la lumière incidente : PAR \footnote{PAR : Photosynthetically Active Radiation.}, à la lumière interceptée : I et à un facteur d’efficience énergétique : LUE\footnote{LUE : Light Use Efficiency.}. On se reporte à la loi de Beer-Lambert pour trouver la quantité de lumière interceptée, qu'on note I : 
+
+\[ I = 1-e^{-k\cdot\mathrm{LAI}} \]
+
+Ce qui permet ensuite de trouver la production de biomasse $Q$
+en déterminant le LUE et en mesurant la PAR.
+\[ 
+  Q = \mathrm{LUE}\times\mathrm{PAR}\times I 
+\]
+
+Dernier concept empirique développé, celui de temps thermique
+\footnote{Le temps thermique correspond à l'accumulation de températures dépassant un certain seuil :
+\[
+\tau^{(n+1)} = \tau^{(n)} + \max[0, \underline{T^{(n)}} - T_c], 
+\]
+
+où $\underline{T^{(n)}}$ est l'écart de température constaté et 
+$T_c$ est le seuil de variation de température qu'on impose.
+}.
+En effet, si on modélise la croissance de la plante  en fonction du temps, cette croissance est très irrégulière et se fait par à coup. Mais si l’on considère le temps thermique on peut trouver une relation quasi-linéaire.
+
