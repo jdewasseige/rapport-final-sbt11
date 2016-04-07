@@ -6,18 +6,16 @@ Il s'agissait d'abord d'assigner à chaque variable du modèle un représentant
 dans notre programme, en rendant ces derniers assez explicites
 afin d'être plus efficace pour l'implémentation des fonctions.
 Les tableaux~\ref{table:state_var},~\ref{table:control_var} et~\ref{table:param_var}
-contiennent respectivement les variables d'\emph{état} auxiliaires et principales, 
+contiennent respectivement les variables d'\emph{état}, temporaires, auxiliaires et principales, 
 les variables \emph{environnementales} et les \emph{paramètres} de la tige, du sol et des racines.
 
-La deuxième partie du travail consistait à définir les différentes fonctions
+La deuxième partie du travail consistait à définir les différentes fonctions (appelées "modules" avec les conventions Pygmalion)
 qui mettent à jour les variables d'état et paramètres du 
 temps $n$ au temps $n+1$.
 L'implémentataion de chacune d'entre elle est basée sur l'algorithme générique~\ref{lst:genfun}.
 On retrouve à l'entrée les variables d'états \texttt{xn} et \texttt{xnplus1},
-le temps \texttt{n}, les variables de contrôles \texttt{u}, les paramètres \texttt{p}
-et éventuellement des informations supplémentaires qui dépendent
-du rôle précis de la fonction.
-On va ensuite mettre à jour une composante de \lstinline|xnplus1| en suivant la description du modèle.
+le temps \texttt{n}, les variables de contrôles \texttt{u}, les paramètres \texttt{p}.
+On va ensuite mettre à jour une composante de \lstinline|xnplus1| par rapport à \texttt{xn} en fonction de \texttt{n}, \texttt{u} et \texttt{p} en suivant la description du modèle.
 
 \begin{algorithm}[t]
   \caption{Algorithme générique qui sert de base pour l'implémentation
