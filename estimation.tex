@@ -2,7 +2,7 @@
 
 Maintenant que le modèle est implémanté, il faut pouvoir estimer les paramètres qui interviennent dans le modèle, pour pouvoir utiliser le dit modèle.
 
-Pour cela, nous utilisons une méthode déjà implémentée sur la plateforme ``lgs'', pour Generalized Least Squares (méthode des moindres carrés généralisée. 
+Pour cela, nous utilisons une méthode déjà implémentée sur la plateforme ``lgs'', pour Generalized Least Squares (méthode des moindres carrés généralisée).
 
 A partir des données expérimentales d'un champ de blé par exemple, cette méthode cherche les valeurs, les paramètres qui font converger les valeurs mesurées et les valeurs calculées par le modèle. 
 La méthodes des moindres carrés généralisée est une méthode classique pour l'estimation de paramètres dans le cas de modèles déterministes, et c'est la cas ici puisque nous n'avons pas implémenté de bruit aléatoire dans notre modèle.
@@ -11,5 +11,5 @@ La méthode minimise la probabilité que les données expérimentales soient dif
 Mais, les calculs ne peuvent être conduits qu'en affectant une valeur arbitraire aux paramètres. On obtient ainsi une nouvelle valeur des paramètres, avec lesquelles on calcule de nouvelles valeurs des paramètres. Et ainsi de suite, jusqu'à que la valeur des paramètres converge.
 
 L'avantage de cette méthode est son efficacité pour déterminer rapidement et avec une assez bonne précision les valeurs cherchées.
-De plus, le fait que cette méthode soit déjà implémenté sur la plateforme est un autre avantage, puisque cela nous permet de l'utiliser sans avoir à l'implémenter. 
+De plus, le fait que cette méthode soit déjà implémentée sur la plateforme est un autre avantage, puisque cela nous permet de l'utiliser sans avoir à l'implémenter. 
 
