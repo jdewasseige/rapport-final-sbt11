@@ -1,4 +1,54 @@
 \section{Méthodologies}
+Nous présenterons dans cette section l'organisation générale du groupe et les outils qui nous aidé tout au long de ce projet.
+On abordera d'abord les outils que nous avons utilisés pour partager 
+notre travail le plus efficacement possible.
+On présentera ensuite notre manière de gérer la bibliographie
+ainsi que les logiciels utilisés pour ne pas perdre les sources visitées.
+On détaillera ensuite l'organisation interne du groupe,
+plus précisemment le système mis en place pour optimiser la communication
+ainsi que la manière dont les tâches ont été réparties tout au long de ce projet.
+On décrira finalement les problèmes, difficultés qui
+!!!!SONT SURVENUS PARTIE A FAIRE QUAND CODE MARCHERA
+
+
+\subsection{Outils de travail collaboratif}
+Pour des raisons pratiques et esthétiques, nous avons décidé d'écrire
+nos rapports en \LaTeX{}.
+Il s'agissait donc de trouver la meilleure façon de partager le code source
+et de pouvoir contrôler les changements apportés au document.
+Une première idée pourrait être d'utiliser ShareLaTeX qui propose une plate-forme
+de compilation en ligne ainsi qu'un système de gestion de versions
+assez simple à utiliser.
+Nous n'avons pas choisi cette solution notamment pour les raisons suivantes.
+L'utilisateur doit être connecté dès qu'il veut travailler sur le projet,
+le système de compilation est assez lent et l'utilisateur n'est pas libre
+d'utiliser son éditeur de texte ou son visualisateur de \textsc{pdf} favori.
+
+Pour palier aux problèmes décrits ci-dessus, le logiciel \texttt{git}
+associé à GitHub est une très bonne alternative.
+Il permet en effet à chaque membre du groupe de travailler sans être connecté
+ainsi que d'utiliser son éditeur et compilateur favori.
+Chaque membre travaille donc de son côté en faisant des \emph{commits}
+et lorsqu'il juge que son travail est utile pour les autres, 
+il \emph{push} sur le serveur.
+L'algorithme du fusion, \emph{merge}, permet également de fusionner intelligemment
+les lignes d'un fichier qui ont été modifiées par plusieurs membres.
+Le dernier point à souligner est que \texttt{git} permet une gestion des branches,
+particulièrement pratique lorsqu'on veut développer une partie du projet
+sans risquer de créer des erreurs dans le programme principal.
+
+Nous combinons donc ces deux outils pour 
+\begin{enumerate}
+  \item implémenter le modèle LNAS blé dans la plateforme
+  Pygmalion en \textsc{Julia} %(une description plus détaillée de
+%  l'objectif attendu pour cette partie est décrite dans la
+%  section~\ref{sec:contexte} à la page~\pageref{sec:contexte})
+  pour le client dont le code source est sur la plateforme GitLab,
+  \item rédiger l'étude documentaire en partageant le code \LaTeX{}
+  à l'aide d'un dossier sur 
+  GitHub\footnote{\url{https://github.com/jdewasseige/projet-sbt11}}.
+\end{enumerate}
+
 
 \subsection{Gestion de la bibliographie}
 Pour la gestion de la bibliographie au sein du document,
@@ -28,45 +78,6 @@ qui font le travail à notre place.
 Les sources trouvées sur Google Scholar peuvent également être exportées
 aisément au format \texttt{BibTex}.
 
-
-\subsection{Outils de travail collaboratif}
-Pour des raisons pratiques et esthétiques, nous avons décider d'écrire
-nos rapports en \LaTeX{}.
-Il s'agissait donc de trouver la meilleure façon de partager le code source
-et de pouvoir contrôler les changements apportés au document.
-Une première idée pourrait être d'utiliser ShareLaTeX qui propose une plate-forme
-de compilation en ligne ainsi qu'un système de gestion de versions
-assez simple à utiliser.
-Nous n'avons pas choisi cette solution notamment pour les raisons suivantes.
-L'utilisateur doit être connecté dès qu'il veut travailler sur le projet,
-le système de compilation est assez lent et l'utilisateur n'est pas libre
-d'utiliser son éditeur de texte ou son visualisateur de \textsc{pdf} favori.
-
-Pour palier aux problèmes décrits ci-dessus, le logiciel \texttt{git}
-associé à GitHub est une très bonne alternative.
-Il permet en effet à chaque membre du groupe de travailler sans être connecté
-ainsi que d'utiliser son éditeur et compilateur favori.
-Chaque membre travaille donc de son côté en faisant des \emph{commits}
-et lorsqu'il juge que son travail est utile pour les autres, 
-il \emph{push} sur le serveur.
-L'algorithme du fusion, \emph{merge}, permet également de fusionner intelligemment
-les lignes d'un fichier qui ont été modifiées par plusieurs membres.
-Le dernier point à souligner est que \texttt{git} permet une gestion des branches,
-particulièrement pratique lorsqu'on veut développer une partie du projet
-sans risquer de créer des erreurs dans le programme principal.
-
-Nous combinons donc ces deux outils pour 
-\begin{enumerate}
-  \item implémenter le modèle LNAS blé dans la plateforme
-  Pygmalion en \textsc{Julia} (une description plus détaillée de
-  l'objectif attendu pour cette partie est décrite dans la
-  section~\ref{sec:contexte} à la page~\pageref{sec:contexte})
-  pour le client dont le code source est sur la plateforme GitLab,
-  \item rédiger l'étude documentaire en partageant le code \LaTeX{}
-  à l'aide d'un dossier sur 
-  GitHub\footnote{\url{https://github.com/jdewasseige/projet-sbt11}}.
-\end{enumerate}
-
 \subsection{Organisation et partage des tâches}
 Il nous reste un dernier point à décrire, celui de la \emph{communication}
 au sein du groupe.
@@ -85,3 +96,5 @@ On trouve aussi un système d'historique et de gestion de fichiers efficace.
 L'ensemble des tâches ainsi que leur répartition pendant l'année
 est associé au planning \textsc{Gantt} qui se trouve
 dans l'Annexe~\ref{ann:planning} à la page~\pageref{ann:planning}.
+
+\subsection{Principales difficultés ?????....}
