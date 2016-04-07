@@ -14,17 +14,17 @@ Le modèle LNAS blé est une version plus complexe du modèle LNAS betterave. Le
 
 \end{figure}
 
-Le modèle va à chaque itération calculer la quantité de biomasse produite, l'ajouter à un pool de biomasse (fig.~\ref{fig:schemaModel}). Ensuite il va calculer des coefficients d'allocation, de remobilisation et de sénescence qui vont déterminer la circulation de biomasse entre les différents compartiment, la loi de conservation voulant que toute la biomasse soit allouée au final.
+Le modèle va à chaque itération calculer la quantité de biomasse produite, l'ajouter à un pool de biomasse (fig.~\ref{fig:schemaModel}). Ensuite il va calculer des coefficients d'allocation, de remobilisation et de sénescence qui vont déterminer la circulation de biomasse entre les différents compartiment, la loi de conservation voulant que toute la biomasse soit finalement allouée.
 
 \begin{itemize}
 
-\item La biomasse est produite par photosynthèse et la quantité crée est calculée grâce à la loi de Beer-Lambert.  Un coeffcient de stress hydrique et un coefficient de stress thermique peuvent réduire la production.
+\item La biomasse est produite par photosynthèse et la quantité crée est calculée grâce à la loi de Beer-Lambert.  Un coefficient de stress hydrique et un coefficient de stress thermique peuvent réduire la production.
 
-\item Des coefficient d'allocation sont ensuite calculés selon des lois log-normales, avec pour paramètres un temps caractéristique, à partir duquel l'allocation commence à être significative, une espérance et une variance. Typiquement, l'allocation aux racines et aux feuilles domine au départ, puis c'est celle aux tiges et vers la maturité de la plante c'est cella au grain.
+\item Des coefficients d'allocation sont ensuite calculés selon des lois log-normales, avec pour paramètres un temps caractéristique, à partir duquel l'allocation commence à être significative, une espérance et une variance. Typiquement, l'allocation aux racines et aux feuilles domine au départ, puis c'est celle aux tiges et vers la maturité de la plante c'est cella au grain.
 
-\item Des coefficient de sénescence sont calculés selon des lois log-normales de la même façon. La sénescence des feuilles commence vers la fin de la croissance de la plante.
+\item Des coefficients de sénescence sont calculés selon des lois log-normales de la même façon. La sénescence des feuilles commence vers la fin de la croissance de la plante.
 
-\item Enfin, des coefficient de remobilisation sont calculés toujours selon des lois log-normales. La remobilisation intervient de façon intense vers la fin pour les feuilles et les tiges en faveur du grain.
+\item Enfin, des coefficients de remobilisation sont calculés toujours selon des lois log-normales. La remobilisation intervient de façon intense vers la fin pour les feuilles et les tiges en faveur du grain.
 
 \end{itemize}
 
