@@ -1,8 +1,10 @@
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{c|c}
+  \begin{tabular}{|c|c|}
+    \hline
     \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    \hline
     $Q_r$ & root\_biomass \\
     $Q_s$ & stem\_biomass \\
     $Q_l$ & green\_leaf\_biomass \\
@@ -35,7 +37,8 @@
     $\beta_l$ & beta\_l \\
     $\gamma_l$ & gamma\_l \\
     $\gamma_y$ & gamma\_y \\
-  \end{tabular}
+    \hline
+    \end{tabular}
   \caption{Variables d'\emph{état} du modèle mathématique et leurs noms
   dans l'implémentation.}
   \label{table:state_var}
@@ -43,13 +46,16 @@
 
 \begin{table}
   \centering
-  \begin{tabular}{c|c}
+  \begin{tabular}{|c|c|}
+    \hline
     \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    \hline
     $T$ & vec\_ext\_temperature \\
     PAR & vec\_par \\
     $W$ & vec\_water\_input \\
     ET0 & vec\_et0 \\
-  \end{tabular}
+    \hline
+    \end{tabular}
   \caption{Variables de \emph{contrôle} du modèle mathématique et leurs noms
   dans l'implémentation.}
   \label{table:control_var}
@@ -57,8 +63,10 @@
 
 \begin{table}
   \centering
-  \begin{tabular}{c|c}
+  \begin{tabular}{|c|c|}
+    \hline
     \textbf{Modèle mathématique} & \textbf{Implémentation} \\
+    \hline
     $t_c$ & t\_c \\
     $t_{opt}$ & t\_opt \\
     $\mu_g$ & mu\_g \\
@@ -83,10 +91,11 @@
     $\rho_r$ & rho\_r \\
     $t_{\downarrow c}$ & t\_soil\_c \\
     $t_{\downarrow opt}$ & t\_soil\_opt \\
+    \hline
   \end{tabular}
   \caption{Paramètres du modèle mathématique et leurs noms
   dans l'implémentation.}
-  \label{table:parameters_var}
+  \label{table:param_var}
 \end{table}
   
 

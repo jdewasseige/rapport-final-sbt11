@@ -9,12 +9,10 @@ Les tableaux~\ref{table:state_var},~\ref{table:control_var} et~\ref{table:param_
 contiennent respectivement les variables d'\emph{état} auxiliaires et principales, 
 les variables \emph{environnementales} et les \emph{paramètres} de la tige, du sol et des racines.
 
-\input{./description_code/varNames}
-
 La deuxième partie du travail consistait à définir les différentes fonctions
 qui mettent à jour les variables d'état et paramètres du 
 temps $n$ au temps $n+1$.
-L'implémentataion de chacune d'entre elle est basée sur l'algorithme générique~\ref{alg1}.
+L'implémentataion de chacune d'entre elle est basée sur l'algorithme générique~\ref{lst:genfun}.
 On retrouve à l'entrée les variables d'états \texttt{xn} et \texttt{xnplus1},
 le temps \texttt{n}, les variables de contrôles \texttt{u}, les paramètres \texttt{p}
 et éventuellement des informations supplémentaires qui dépendent
@@ -22,38 +20,39 @@ du rôle précis de la fonction.
 On va ensuite mettre à jour une composante de \lstinline{xnplus1}
 en suivant la description du modèle.
 
-\begin{algorithm}[caption={Algorithme générique qui sert de base pour l'implémentation
-  des fonctions. La fonction $f$ n'est pas définie mais sert de placeholder
-  pour représenter les opérations nécessaires à la mise à jour de xnplus1.}, label={genfun}]
- input: int n, State Vector xn, Control Vector u, Parameters Vector p, State Vector xnplus1
- output: None
- begin
-   xnplus1.composante $\gets$ f(p.composante, u.composante, xn.composante)
- end       
+\begin{algorithm}[t]
+  \caption{Algorithme générique qui sert de base pour l'implémentation
+des fonctions. La fonction $f$ n'est pas définie mais sert de placeholder
+pour représenter les opérations nécessaires à la mise à jour de \lstinline|xnplus1|.}
+\label{lst:genfun}
+  \begin{algorithmic}[1]
+    \Procedure{Generic}{int $n$, State Vector $xn$, Control Vector $u$, Parameters Vector $p$, State Vector $xnplus1$}
+    \State \textbf{begin}
+      \State $xnplus1.composante \gets f(p.composante, u.composante, xn.composante)$
+    \State \textbf{end}
+    \State \textbf{return} None
+    \EndProcedure
+  \end{algorithmic}
 \end{algorithm}
 
-À titre d'exemple, on va utiliser la fonction \texttt{get\_pot\_evaporation} qui met
+\lstset{        literate=
+                       {==}{$={}$}{1}}
+
+À titre d'exemple, on va utiliser la fonction \lstinline|get_pot_evaporation| qui met
 à jour l'évaporation requise en fonction des conditions environnementales
 selon l'équation~\ref{eq:req_evap}.
 \begin{equation}
   \text{Espot}^{(n)} = K_s \text{ ET0 } \exp{-\lambda \text{ LAI}^{(n)}}
   \label{eq:req_evap}
 \end{equation}
-En suivant la démarche~\ref{genfun}, on obtient en \textsc{Julia}
+En suivant la démarche~\ref{lst:genfun}, on obtient en \textsc{Julia}
 l'implémentation suivante.
-\lstlisting{
-function get\_pot\_evaporation!(n, xn, u, p, xnplus1)
-	xnplus1.soil\_req\_evaporation = p.k\_s * u.ET0[n] * 
-  exp( -p.lambda * xn.leaf\_area\_index) 
+\begin{lstlisting}
+function get_pot_evaporation!(n, xn, u, p, xnplus1)
+  xnplus1.soil_req_evaporation = 
+    p.k_s * u.ET0[n] * exp( -p.lambda * xn.leaf_area_index) 
 end
-}
+\end{lstlisting}
 
 
-% On retrouvera finalement trois fonctions ne suivant pas l'algorithme générique
-% \begin{enumerate}
-%   \item \texttt{initialize} qui va initialiser les différentes composantes de x0,
-%   \item \text{transition} qui va créer le vecteur xnplus1 et exécuter toutes les fonctions,
-%   \item \text{observer\_function} [???].
-% \end{enumerate}
-
-
+\input{./description_code/varNames}
