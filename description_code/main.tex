@@ -45,7 +45,7 @@ selon l'équation~\ref{eq:req_evap}.
   \text{Espot}^{(n)} = K_s \text{ ET0 } e^{-\lambda \text{ LAI}^{(n)}}
   \label{eq:req_evap}
 \end{equation}
-On obtient en \textsc{Julia} l'implémentation suivante.
+On obtient en \textsc{Julia} l'implémentation suivante
 \begin{lstlisting}
 function get_pot_evaporation!(n, xn, u, p, xnplus1)
   xnplus1.soil_req_evaporation = 
@@ -53,5 +53,18 @@ function get_pot_evaporation!(n, xn, u, p, xnplus1)
 end
 \end{lstlisting}
 
+Il reste finalement deux fonctions particulières qui ne suivent
+pas l'algorithme~\ref{lst:genfun}.
+% Elles se nomment \lstinline|initialize|, \lstinline|transition|
+% et servent respectivement à initialiser \lstinline|xn| et
+% à exécuter toutes les fonctions pour passer au temps suivant.
+
+\begin{enumerate}
+  \item \lstinline|initialize| qui va initialer les composantes de \lstinline|xn|,
+  \item \lstinline|transition| qui permet de passer au temps suivant et d'exécuter toutes les fonctions.
+\end{enumerate}
+
+
 
 \input{./description_code/varNames}
+
