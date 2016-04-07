@@ -6,8 +6,9 @@ Ainsi, nous envisageons par exemple de décrire de manière plus précise le com
 
 Pierre Carmier nous enjoint également à réaliser une analyse de sensibilité, pour déterminer l'influence de chaque paramètre sur le modèle. En effet, plus de 20 paramètres sont présents dans le modèle, et les déterminer tous nécessite de nombreux jeux de données. Si l'influence de certains paramètres s'avère assez faible, on pourra les remplacer par des constantes prises à leur valeur moyenne estimée pour simplifier l'étape de l'estimation des paramètres.
 
-Nous aimerions également utiliser le modèle sur un jeu de données expérimentales. L'utilisation du modèle se décrit comme suit : On rentre un fichier de données expérimentales et on utilise une méthode d'estimation des paramètres (comme la méthode des moindre carrés généralisés par exemple, qui est déjà implémentée sur la plateforme). Cela nous permet d'obtenir une estimation des paramètres. 
-Une fois les paramètres estimés, on peu ensuite utiliser le modèle pour réaliser des simulations, en utilisant les paramètres estimées. En effet, cette fois les paramètres sont fixées à leur valeur estimée et on ne rentre que les conditions initiales et extérieures du champ considéré.
-Avec un autre jeu de donnée, on peut ainsi confronter les simulations obtenues avec les valeurs expérimentales. On vérifie ainsi la bonne adéquation du modèle, the goodness of fit. On peut ainsi obtenir le niveau d'incertitude de la prédiciton fournie par le modèle.
-Si cette étape s'avère concluante, on peut alors réaliser des prédictions sur a priori n'importe quel champ de blé. Ce sont les étapes logiques de modélisation. 
+Nous aimerions également utiliser le modèle sur un jeu de données expérimentales. L'utilisation du modèle se décrit comme suit : on rentre un fichier de données expérimentales et on utilise une méthode d'estimation des paramètres (comme la méthode des moindres carrés généralisés par exemple, qui est déjà implémentée sur la plateforme). Cela nous permet d'obtenir une estimation des paramètres. 
+Une fois les paramètres estimés, on utilise ceux-ci pour à nouveau réaliser des simulations avec 
+le modèle. En effet, cette fois les paramètres sont fixés à leur valeur estimée et on ne rentre que les conditions initiales et extérieures du champ considéré.
+Avec un autre jeu de donnée, on peut ainsi confronter les simulations obtenues avec les valeurs expérimentales. On vérifie ainsi la bonne adéquation du modèle, the goodness of fit. On peut ainsi obtenir le niveau d'incertitude de la prédiction fournie par le modèle.
+Si cette étape s'avère concluante, on peut alors réaliser des prédictions sur à priori n'importe quel champ de blé. Ce sont les étapes logiques de modélisation. 
 
