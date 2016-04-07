@@ -8,14 +8,14 @@ La simulation se fait sur 275 jours, avec un pas de discrétisation d'un jour. L
 
 
 
-\subsubsection{Résultats considérés}}
+\subsubsection{Résultats considérés}
 
 Nous considérerons les sorties suivantes :
 
 \begin{figure}
 
 \begin{center}
- \includegraphics[scale = 0.7]{./img/grain.png}
+ \includegraphics[scale = 0.3]{./img/grain.png}
  \caption{Biomasse de grain en fonction du temps}
  \label{fig:resultatGrain}
 \end{center}
@@ -25,7 +25,7 @@ Nous considérerons les sorties suivantes :
 \begin{figure}
 
 \begin{center}
- \includegraphics[scale = 0.7]{./img/LAI.png}
+ \includegraphics[scale = 0.3]{./img/LAI.png}
  \caption{Indice LAI en fonction du temps}
  \label{fig:resultatLAI}
 \end{center}
@@ -35,17 +35,9 @@ Nous considérerons les sorties suivantes :
 \begin{figure}
 
 \begin{center}
- \includegraphics[scale = 0.7]{./img/stem.png}
+ \includegraphics[scale = 0.5]{./img/stem.png}
  \caption{Biomasse de la tige en fonction du temps}
  \label{fig:resultatStem}
-\end{center}
-
-\end{figure}
-
-\begin{center}
- \includegraphics[scale = 0.7]{./img/water.png}
- \caption{Quantité d'eau dans la couche de sol considérée}
- \label{fig:resultatWater}
 \end{center}
 
 \end{figure}
@@ -53,7 +45,16 @@ Nous considérerons les sorties suivantes :
 \begin{figure}
 
 \begin{center}
- \includegraphics[scale = 0.7]{./img/waterStress.png}
+ \includegraphics[scale = 0.5]{./img/water.png}
+ \caption{Quantité d'eau dans la couche de sol considérée}
+ \label{fig:resultatWater}
+\end{center}
+\end{figure}
+
+\begin{figure}
+
+\begin{center}
+ \includegraphics[scale = 0.5]{./img/waterStress.png}
  \caption{Indice de stress hydrique en fonction du temps}
  \label{fig:resultatStressH}
 \end{center}
@@ -63,7 +64,7 @@ Nous considérerons les sorties suivantes :
 \begin{figure}
 
 \begin{center}
- \includegraphics[scale = 0.7]{./img/thermicStress.png}
+ \includegraphics[scale = 0.5]{./img/thermicStress.png}
  \caption{Indice de stress thermique en fonction du temps}
  \label{fig:resultatStressT}
 \end{center}
@@ -72,17 +73,17 @@ Nous considérerons les sorties suivantes :
 
 \begin{itemize}
 
-	\item \textbf {\ref{fig:resultatGrain} La masse du grain :} C'est la donnée la plus importante et la plus intéressante à mesurer qui correspond à la récolte de céréale. On attend une valeur autour de 1000.
+	\item \textbf {La masse du grain \ref{fig:resultatGrain}:} C'est la donnée la plus importante et la plus intéressante à mesurer qui correspond à la récolte de céréale. On attend une valeur autour de 1000.
 	
-	\item \textbf{\ref{fig:resultatLAI} Le LAI :} C'est l'indice de surface foliaire, décrit précédemment, il est directement lié à la masse du feuillage vert. On le préfère à ce dernier car les valeurs qu'il atteint classiquement sont connues : on attend un valeur entre 5 et 6.
+	\item \textbf{Le LAI \ref{fig:resultatLAI}:} C'est l'indice de surface foliaire, décrit précédemment, il est directement lié à la masse du feuillage vert. On le préfère à ce dernier car les valeurs qu'il atteint classiquement sont connues : on attend un valeur entre 5 et 6.
 	
-	\item \textbf{\ref{fig:resultatStem} La masse des tiges :} Son profil est intéressant à suivre lors de de deux moments critiques : une croissance rapide des tiges au moment de montaison où la biomasse est allouée aux tiges en priorité. Puis une remobilisation de la biomasse de la tige (en même temps que celle des feuilles vertes) qui se transforme en grain.
+	\item \textbf{La masse des tiges \ref{fig:resultatStem}:} Son profil est intéressant à suivre lors de de deux moments critiques : une croissance rapide des tiges au moment de montaison où la biomasse est allouée aux tiges en priorité. Puis une remobilisation de la biomasse de la tige (en même temps que celle des feuilles vertes) qui se transforme en grain.
 	
-	\item \textbf{\ref{fig:resultatWater}La quantité d'eau dans le sol :} Une part importante du modèle est la simulation du comportement de l'eau dans le sol. Il est donc intéressant de voir de façon globale comment la quantité d'eau sur la couche du sol considérée évolue.
+	\item \textbf{La quantité d'eau dans le sol \ref{fig:resultatWater}:} Une part importante du modèle est la simulation du comportement de l'eau dans le sol. Il est donc intéressant de voir de façon globale comment la quantité d'eau sur la couche du sol considérée évolue.
 	
-	\item \textbf{\ref{fig:resultatStressH}L'indice de stress hydrique :} Il permet de voir à quel moment la plante manque d'eau et les influences que cela a sur la croissance de la plante.
+	\item \textbf{L'indice de stress hydrique \ref{fig:resultatStressH}:} Il permet de voir à quel moment la plante manque d'eau et les influences que cela a sur la croissance de la plante.
 	
-	\item \textbf{\ref{fig:resultatStressT}L'indice de stress thermique :} De même il permet de voir l'influence de la température sur la croissance de la plante .
+	\item \textbf{L'indice de stress thermique :\ref{fig:resultatStressT}} De même il permet de voir l'influence de la température sur la croissance de la plante .
 
 \end{itemize}
 
