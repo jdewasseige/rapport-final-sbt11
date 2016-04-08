@@ -17,7 +17,7 @@
 *.db
 *.lb
 auxFile/*
-rapport-final.pdf
+sbt11-finale.pdf
 
 #biblatex
 *.bbl
