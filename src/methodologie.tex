@@ -1,6 +1,3 @@
-
-
-
 \section{Méthodologies}
 Nous présenterons dans cette section l'organisation générale du groupe et les outils qui nous aidé tout au long de ce projet.
 On abordera d'abord les outils que nous avons utilisés pour partager 
@@ -32,7 +29,7 @@ ainsi que d'utiliser son éditeur et compilateur favori.
 Chaque membre travaille donc de son côté en faisant des \emph{commits}
 et lorsqu'il juge que son travail est utile pour les autres, 
 il \emph{push} sur le serveur.
-L'algorithme du fusion, \emph{merge}, permet également de fusionner intelligemment
+L'algorithme de fusion, \emph{merge}, permet également de fusionner intelligemment
 les lignes d'un fichier qui ont été modifiées par plusieurs membres.
 Le dernier point à souligner est que \texttt{git} permet une gestion des branches,
 particulièrement pratique lorsqu'on veut développer une partie du projet
@@ -94,7 +91,7 @@ On trouve aussi un système d'historique et de gestion de fichiers efficace.
 
 \subsection{Planning}
 L'organisation de nos travaux au cours de ce semestre
-sont présentés en annexe~\ref{ann:planning}
+est présentée en annexe~\ref{ann:planning}
 dans le tableau~\ref{fig:planning}
 (page~\pageref{fig:planning}).
 Il contient ce qui devait être fait en théorie et à quel moment,
@@ -120,7 +117,7 @@ Mais ce projet est là pour nous rappeler qu'une organisation préalable et une 
 Nous avons également été confrontés à des problèmes informatiques lors de l'implémentation et de l'utilisation du modèle.
 \begin{itemize}
 	\item Un bogue a empêché au début de nos premières tentatives le lancement de nos programmes. En effet, les chercheurs
-du laboratoire MAS qui ont développé la plateforme utilisait les fonctions directement sur leur répertoire, alors que nous y accédions depuis le dossier principal. Il y avait un problème de chemin relatif. Il a donc fallu détecter l'origine de ce bogue avant de pouvoir commencer à utiliser nos programmes. 
+du laboratoire MAS qui ont développé la plateforme utilisaient les fonctions directement sur leur répertoire, alors que nous y accédions depuis le dossier principal. Il y avait un problème de chemin relatif. Il a donc fallu détecter l'origine de ce bogue avant de pouvoir commencer à utiliser nos programmes. 
 	
 	\item De plus, des erreurs classiques sur notre implémentation empêchaient également le bon déroulement de nos utilisations du modèle : coquilles, oublis, fautes de frappe... L'impossibilité d'utiliser la simulation à cause du bogue précédemment décrit a rendu leur détection plus ardue.
 
@@ -131,18 +128,17 @@ Nous avons donc avec l'aide de notre client ajusté les formules que nous utilis
 \begin{itemize}
 	\item Dans un premier temps, la croissance de la plante était trop faible. Il a fallu changer les fonctions log-normales dans les fonctions d'allocation, de remobilisation et de sénescence. 
 La formule donnée dans le document  utilisait une définition différente de l'écart type que la formule qui correspondait aux paramètres que Pierre Carmier nous avait fournis. Nous avons donc utilisé directement la formule déjà implémentée dans le modèle LNAS betterave qui correspond bien aux conventions utilisées.
-	\item Une fois ceci corrigé, nous obtenions cette fois des récoltes beaucoup trop élevées, plus de 3000 en grains et environ 16 de LAI, alors que les valeurs attendues sont respectivement en ordre de grandeur 1000 et entre 5 et 6.
+	\item Une fois ceci corrigé, nous obtenions cette fois des récoltes beaucoup trop élevées, plus de $3000~\si{\gram\per\meter\squared}$ en grains et environ 16 de LAI, alors que les valeurs attendues sont respectivement en ordre de grandeur $1000~\si{\gram\per\meter\squared}$ et entre $5$ et $6$.
 Cela était dû à l'absence de prise en compte dans le modèle théorique du temps de montaison, temps à partir duquel la tige commence à croître de manière très rapide.
 
-En effet, nous procédions comme suit pour l'allocation de la biomasse produite par photosynthèse aux différents organes : le coefficient d'allocation des grains d'abord calculé. Il est nul au départ et tend rapidement vers 1 lorsque la plante arrive à maturité. La biomasse restante était ensuite allouée à parts égales entre les 3 compartiments restants (tiges, racines, feuilles) (sauf en cas de stress thermique ou hydrique). Ceci est peu réaliste.
+En effet, nous procédions comme suit pour l'allocation de la biomasse produite par photosynthèse aux différents organes. On calcule d'abord le coefficient d'allocation des grains. Il est nul au départ et tend rapidement vers 1 lorsque la plante arrive à maturité. La biomasse restante était ensuite allouée à parts égales entre les $3~\si{\gram\per\meter\squared}$ compartiments restants (tiges, racines, feuilles) (sauf en cas de stress thermique ou hydrique). Ceci est peu réaliste.
 Nous avons donc introduit un temps de montaison, tout d'abord de manière assez abrupte. 
 Il s'agit de ne rien allouer à la tige au départ, puis de lui en allouer de plus en plus à partir du temps de montaison. Nous nous sommes contentés en première approximation de décrire deux régimes, un régime pré-montaison et un régime post-montaison, avec une transition instantanée. Plus tard, nous comptons implémenter une transition progressive avec une loi lognormale et rentrer ces nouveaux paramètres dans le modèle.
-Cela a permis d'avoir des valeurs plus réalistes pour le LAI et la quantité de grain est descendue à 2500.
+Cela a permis d'avoir des valeurs plus réalistes pour le LAI et la quantité de grain est descendue à $2500~\si{\gram\per\meter\squared}$.
 
-	\item Mais nous obtenions toujours une trop grande quantité de grain (2500). 
-
-Cela était dû au fait qu'après la maturité de la plante, toute la biomasse de la tige était réallouée aux grains, ce qui n'est pas réaliste non plus. En effet, une partie des tiges subit une sénescence trop avant de pouvoir se transformer en grains de blé. On crée donc un compartiment ``tige jaune'', suivant le modèle qu'on a feuille jaune/feuille verte. La biomasse de ce compartiment ne sera jamais allouée aux grains.
-Après ajout de ce compartiment au modèle, nous avons obtenu des valeurs de grain finales légèrement en dessous de 2000, ce qui était encore trop. 
+	\item Mais nous obtenions toujours une trop grande quantité de grain ($2500~\si{\gram\per\meter\squared}$). 
+Cela était dû au fait qu'après la maturité de la plante, toute la biomasse de la tige était réallouée aux grains, ce qui n'est pas réaliste non plus. En effet, une partie des tiges subit une sénescence trop tôt avant de pouvoir se transformer en grains de blé. On crée donc un compartiment ``tige jaune'', suivant le modèle qu'on a feuille jaune/feuille verte. La biomasse de ce compartiment ne sera jamais allouée aux grains.
+Après ajout de ce compartiment au modèle, nous avons obtenu des valeurs de grain finales légèrement en dessous de $2000~\si{\gram\per\meter\squared}$, ce qui était encore trop. 
 Nous regarderons après la soutenance si le modèle peut encore être affiné, mais surtout nous essaierons de jouer sur les paramètres du modèle pour obtenir des valeurs encore plus cohérentes.
 
 

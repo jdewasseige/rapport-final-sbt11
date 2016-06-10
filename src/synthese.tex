@@ -9,9 +9,29 @@ L’élément crucial qui permet le développement d’une plante est la \emph{p
 Parce qu’ils interviennent dans la réaction de photosynthèse, l’eau, le soleil\dots ~sont des éléments clés de la modélisation du développement d’une plante.
 
 Grâce à l’\emph{histoire} de l’étude des plantes, nous avons également pu comprendre le contexte dans lequel la modélisation des plantes s’inscrit aujourd’hui. C’est l’essor des mathématiques et de l’informatique qui permet d’envisager demain une modélisation efficace, avec des applications comme l’agriculture de précision. 
-En effet, les mathématiques ont peu à peu formalisé la connaissance des plantes pour obtenir des modélisations plus précises, en introduisant des notions comme le temps thermique, le LUE et le PAR.
+En effet, les mathématiques ont peu à peu formalisé la connaissance des plantes pour obtenir des modélisations plus précises.
+On rappelera que la production de biomasse $Q$ est proportionnelle
+\begin{enumerate}
+  \item au LAI, pour Leaf Area Index, qui correspond au ratio entre la surface totale supérieure des feuilles
+  vertes et la surface de sol sur laquelle se développe la culture,
+  \item au PAR, pour Photosynthetically Active Radiation, qui correspond à l'énergie utile de la lumière incidente,
+  \item à I, la lumière interceptée, donnée par
+  \[ I = 1-e^{-k\cdot\mathrm{LAI}} \]
+  \item au LUE, pour Light Use Efficiency, qui est le facteur d'efficience énergétique.
+\end{enumerate}
+selon
+\[ 
+  Q = \mathrm{LUE}\times\mathrm{PAR}\times I 
+\]
+On rappelera également le concept de \emph{temps thermique} qui correspond à l'accumulation de températures dépassant un certain seuil :
+\[
+\tau^{(n+1)} = \tau^{(n)} + \max[0, \underline{T^{(n)}} - T_c], 
+\]
+où $\underline{T^{(n)}}$ est l'écart de température constaté et 
+$T_c$ est le seuil de variation de température qu'on impose.
 
 Nous nous étions également intéressés aux \emph{caractéristiques} propres à la modélisation des plantes, afin de comprendre les principales difficultés qui empêchent une utilisation globale des modèles de croissance des plantes. Parmi eux, on peut citer : l’estimation difficile des paramètres d’un modèle, des techniques sophistiquées en informatique et en mathématique sont nécessaires et une diversité importante sans benchmarking des modèles ne permet pas de choisir facilement celui qui sera le plus adapté. 
 
-Nous nous sommes ensuite intéressés aux \emph{modèles les plus répandus} pour décrire le développement de la plante. Parmi eux, la grammaire L-système, le modèle GreenLab et le modèle LNAS appliqué à la betterave. La description fournie par les L-systèmes étant trop précise, ils conduisent à des temps de calcul trop importants et il est difficile d’estimer les nombreux paramètres qui interviennent.
-Le modèle GreenLab introduit une alternative intéressante : plutôt que de décrire l’architecture individuelle au niveau d’un champ, les organes (les feuilles, les grains…) sont remplacés par des pools de biomasse. On ne s’intéresse plus qu’à la masse totale des feuilles, des grains, des tiges… sur un champ. Un pool de biomasse commun permet de décrire la biomasse obtenue grâce à la photosynthèse. L’enjeu est maintenant de pouvoir décrire comment la biomasse sera répartie entre les différents organes de la plante à un instant $t$. Le modèle LNAS appliqué à la betterave nous a ainsi permis de nous familiariser avec un premier modèle de manière plus concrète, grâce aux formules d’allocation de biomasse de ce modèle.
+% Nous nous sommes ensuite intéressés aux \emph{modèles les plus répandus} pour décrire le développement de la plante. Parmi eux, la grammaire L-système, le modèle GreenLab et le modèle LNAS appliqué à la betterave. La description fournie par les L-systèmes étant trop précise, ils conduisent à des temps de calcul trop importants et il est difficile d’estimer les nombreux paramètres qui interviennent.
+% Le modèle GreenLab introduit une alternative intéressante : plutôt que de décrire l’architecture individuelle au niveau d’un champ, les organes (les feuilles, les grains…) sont remplacés par des pools de biomasse. On ne s’intéresse plus qu’à la masse totale des feuilles, des grains, des tiges… sur un champ. Un pool de biomasse commun permet de décrire la biomasse obtenue grâce à la photosynthèse. L’enjeu est maintenant de pouvoir décrire comment la biomasse sera répartie entre les différents organes de la plante à un instant $t$. Le modèle LNAS appliqué à la betterave nous a ainsi permis de nous familiariser avec un premier modèle de manière plus concrète, grâce aux formules d’allocation de biomasse de ce modèle.
+% 
